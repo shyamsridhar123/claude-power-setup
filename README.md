@@ -1,6 +1,18 @@
 # Claude Power Setup
 
-Multi-agent orchestration, automation pipelines, and recursive self-improvement for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Layers on top of [ECC (Everything Claude Code)](https://github.com/affaan-m/everything-claude-code).
+> **Multi-agent orchestration, automation pipelines, and recursive self-improvement for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).**
+
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Extension-purple.svg)](https://docs.anthropic.com/en/docs/claude-code)
+
+Layers on top of [ECC (Everything Claude Code)](https://github.com/affaan-m/everything-claude-code). One command to install:
+
+```bash
+npx claude-power-setup
+```
+
+https://github.com/user-attachments/assets/feature-video.mp4
 
 ## Prerequisites
 
@@ -16,7 +28,7 @@ Multi-agent orchestration, automation pipelines, and recursive self-improvement 
 ### Linux / macOS / Git Bash (Windows)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-power-setup.git
+git clone https://github.com/shyamsridhar123/claude-power-setup.git
 cd claude-power-setup
 bash install.sh
 ```
@@ -24,7 +36,7 @@ bash install.sh
 ### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/YOUR_USERNAME/claude-power-setup.git
+git clone https://github.com/shyamsridhar123/claude-power-setup.git
 cd claude-power-setup
 powershell -ExecutionPolicy Bypass -File install.ps1
 ```
