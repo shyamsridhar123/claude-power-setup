@@ -75,6 +75,8 @@ The result: you spend less time managing the AI and more time thinking about the
 | **Git** | Recommended | Worktrees, session save, loop runner |
 | **ECC** | Recommended | This setup extends ECC's hooks and skills |
 
+> **Zero dependencies.** The npm package installs nothing except itself (~750 KB). No runtime deps, no transitive downloads.
+
 ## Quick Install
 
 ### npm (recommended — any platform)
@@ -202,39 +204,45 @@ See `~/.claude/contexts/ORCHESTRATION-REFERENCE.md` for the full reference with 
 
 ```
 claude-power-setup/
-├── install.sh                 # Main installer (bash, cross-platform)
-├── install.ps1                # Windows PowerShell wrapper
-├── uninstall.sh               # Safe removal (only touches what it installed)
-├── cli.js                     # npm entry point (npx claude-power-setup)
-├── package.json               # npm package config
-├── README.md                  # This file
-├── LICENSE                    # MIT
-├── assets/                    # README assets
-│   └── banner.svg             # Terminal-style banner in Anthropic colors
-├── contexts/                  # Mode profiles
+├── .github/
+│   └── workflows/
+│       └── ci.yml                 # CI: tests (3 OS × 3 Node) + ShellCheck + dry-run
+├── assets/                        # README assets
+│   ├── banner.svg
+│   ├── thumbnail.png
+│   └── thumbnail.svg
+├── bin/                           # Automation scripts
+│   ├── claude-aliases.sh          # Mode aliases + pipeline functions
+│   ├── claude-loop.sh             # Continuous loop with quality gates
+│   └── claude-session-save.sh     # Cross-session memory persistence
+├── config/                        # Settings templates
+│   ├── env-settings.json          # Agent Teams, cost tracking, hook profile
+│   └── observer-config.json       # Continuous learning observer config
+├── contexts/                      # Mode profiles
 │   ├── dev.md
 │   ├── orchestrate.md
 │   ├── review.md
 │   └── research.md
-├── bin/                       # Automation scripts
-│   ├── claude-aliases.sh      # Mode aliases + pipeline functions
-│   ├── claude-loop.sh         # Continuous loop with quality gates
-│   └── claude-session-save.sh # Cross-session memory persistence
-├── instincts/                 # Learned patterns with confidence scores
-│   ├── parallel-agents-for-independent-files.md
+├── instincts/                     # Learned patterns with confidence scores
 │   ├── de-sloppify-separate-pass.md
 │   ├── dual-review-catches-more.md
+│   ├── parallel-agents-for-independent-files.md
 │   └── uuid-esm-incompatibility-jest.md
-├── config/                    # Settings templates
-│   ├── env-settings.json      # Agent Teams, cost tracking, hook profile
-│   └── observer-config.json   # Continuous learning observer config
-├── reference/                 # Documentation
+├── reference/                     # Documentation
 │   └── ORCHESTRATION-REFERENCE.md
-└── video/                     # Remotion source for feature video
-    ├── index.ts
-    ├── Root.tsx
-    └── scenes/
-        └── FeatureVideo.tsx
+├── test/                          # Test suite (node:test, zero deps)
+│   ├── run.js                     # Cross-platform test runner
+│   ├── file-alignment.test.js     # Installer ↔ uninstaller file parity
+│   ├── instinct-format.test.js    # YAML frontmatter validation
+│   ├── package-quality.test.js    # Zero deps, metadata, no bloat
+│   └── version-consistency.test.js # Single source of truth for version
+├── cli.js                         # npm entry point (npx claude-power-setup)
+├── install.sh                     # Main installer (bash, cross-platform)
+├── install.ps1                    # Windows PowerShell installer
+├── uninstall.sh                   # Safe removal (only touches what it installed)
+├── package.json                   # npm package config (zero dependencies)
+├── LICENSE                        # MIT
+└── README.md                      # This file
 ```
 
 ## Uninstall
@@ -246,9 +254,25 @@ bash uninstall.sh --dry-run # Preview what would be removed
 
 The uninstaller only removes files it installed. It never touches ECC hooks, plugins, session data, user-created instincts, or user-modified settings. Env settings are only reverted if their values still match what was installed (user modifications are preserved).
 
+## Testing
+
+The project includes a 33-test suite using Node.js built-in test runner (zero test dependencies):
+
+```bash
+npm test
+```
+
+Tests verify:
+- **Version consistency** — all installers read from `package.json` (no hardcoded versions)
+- **File alignment** — every file the installer deploys is accounted for in the uninstaller
+- **Instinct format** — YAML frontmatter, confidence scores, evidence sections
+- **Package quality** — zero runtime dependencies, correct metadata, no bloat
+
+CI runs on every push across **3 OSes** (Ubuntu, Windows, macOS) × **3 Node versions** (18, 20, 22), plus ShellCheck linting and dry-run validation.
+
 ## Key Slash Commands
 
-After installation, these slash commands become available in Claude Code:
+These slash commands are available via [ECC](https://github.com/affaan-m/everything-claude-code) and work well with this setup's context profiles and pipelines:
 
 | Command | Purpose |
 |---------|---------|
