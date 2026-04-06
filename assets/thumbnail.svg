@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" fill="none">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="60%" stop-color="#0d0d22"/>
+      <stop offset="100%" stop-color="#111133"/>
+    </linearGradient>
+
+    <!-- Title gradient: purple → cyan -->
+    <linearGradient id="titleGrad" x1="400" y1="260" x2="900" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c6aff"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <!-- Badge background -->
+    <linearGradient id="badgeBg" x1="390" y1="500" x2="890" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c6aff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <!-- Orb glows -->
+    <radialGradient id="orbPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c6aff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7c6aff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbPink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Card border glow for agent nodes -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="textGlow" x="-10%" y="-30%" width="120%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.49  0 0 0 0 0.42  0 0 0 0 1  0 0 0 0.6 0" result="colorBlur"/>
+      <feComposite in="SourceGraphic" in2="colorBlur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- ── Base ── -->
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- ── Grid overlay ── -->
+  <rect width="1280" height="720" fill="none"
+    style="stroke: none;"
+    rx="0"/>
+  <!-- Grid lines are drawn manually for SVG compatibility -->
+  <!-- Vertical lines every 60px -->
+  <g stroke="rgba(124,106,255,0.04)" stroke-width="1">
+    <line x1="60" y1="0" x2="60" y2="720"/>
+    <line x1="120" y1="0" x2="120" y2="720"/>
+    <line x1="180" y1="0" x2="180" y2="720"/>
+    <line x1="240" y1="0" x2="240" y2="720"/>
+    <line x1="300" y1="0" x2="300" y2="720"/>
+    <line x1="360" y1="0" x2="360" y2="720"/>
+    <line x1="420" y1="0" x2="420" y2="720"/>
+    <line x1="480" y1="0" x2="480" y2="720"/>
+    <line x1="540" y1="0" x2="540" y2="720"/>
+    <line x1="600" y1="0" x2="600" y2="720"/>
+    <line x1="660" y1="0" x2="660" y2="720"/>
+    <line x1="720" y1="0" x2="720" y2="720"/>
+    <line x1="780" y1="0" x2="780" y2="720"/>
+    <line x1="840" y1="0" x2="840" y2="720"/>
+    <line x1="900" y1="0" x2="900" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+    <line x1="1020" y1="0" x2="1020" y2="720"/>
+    <line x1="1080" y1="0" x2="1080" y2="720"/>
+    <line x1="1140" y1="0" x2="1140" y2="720"/>
+    <line x1="1200" y1="0" x2="1200" y2="720"/>
+    <!-- Horizontal lines every 60px -->
+    <line x1="0" y1="60" x2="1280" y2="60"/>
+    <line x1="0" y1="120" x2="1280" y2="120"/>
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+    <line x1="0" y1="300" x2="1280" y2="300"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="420" x2="1280" y2="420"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
+    <line x1="0" y1="600" x2="1280" y2="600"/>
+    <line x1="0" y1="660" x2="1280" y2="660"/>
+  </g>
+
+  <!-- ── Glowing orbs ── -->
+  <ellipse cx="180" cy="200" rx="340" ry="280" fill="url(#orbPurple)"/>
+  <ellipse cx="1160" cy="560" rx="300" ry="260" fill="url(#orbCyan)"/>
+  <ellipse cx="1100" cy="140" rx="200" ry="180" fill="url(#orbPink)"/>
+  <ellipse cx="220" cy="620" rx="220" ry="180" fill="url(#orbGreen)"/>
+
+  <!-- ── Left side: Agent node diagram ── -->
+  <!-- Orchestrator node -->
+  <rect x="52" y="220" width="164" height="56" rx="10"
+    fill="rgba(124,106,255,0.12)" stroke="rgba(124,106,255,0.5)" stroke-width="1.5"/>
+  <circle cx="76" cy="248" r="8" fill="#7c6aff" opacity="0.9"/>
+  <text x="92" y="244" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#a78bfa">Orchestrator</text>
+  <text x="92" y="258" font-family="ui-monospace, monospace" font-size="11" fill="rgba(148,163,184,0.7)">planner agent</text>
+
+  <!-- Connector lines from orchestrator -->
+  <line x1="134" y1="276" x2="134" y2="318" stroke="rgba(124,106,255,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="90" y1="276" x2="60" y2="318" stroke="rgba(6,182,212,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="178" y1="276" x2="208" y2="318" stroke="rgba(236,72,153,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Worker node 1: code-reviewer -->
+  <rect x="52" y="318" width="148" height="52" rx="9"
+    fill="rgba(6,182,212,0.10)" stroke="rgba(6,182,212,0.4)" stroke-width="1.5"/>
+  <circle cx="73" cy="344" r="6" fill="#06b6d4" opacity="0.85"/>
+  <text x="86" y="340" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#67e8f9">code-reviewer</text>
+  <text x="86" y="354" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">quality gate</text>
+
+  <!-- Worker node 2: security -->
+  <rect x="52" y="388" width="148" height="52" rx="9"
+    fill="rgba(236,72,153,0.10)" stroke="rgba(236,72,153,0.35)" stroke-width="1.5"/>
+  <circle cx="73" cy="414" r="6" fill="#ec4899" opacity="0.85"/>
+  <text x="86" y="410" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#f9a8d4">security-reviewer</text>
+  <text x="86" y="424" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">OWASP scan</text>
+
+  <!-- Worker node 3: tdd-guide -->
+  <rect x="52" y="458" width="148" height="52" rx="9"
+    fill="rgba(34,197,94,0.09)" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <circle cx="73" cy="484" r="6" fill="#22c55e" opacity="0.85"/>
+  <text x="86" y="480" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#86efac">tdd-guide</text>
+  <text x="86" y="494" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">test coverage</text>
+
+  <!-- Vertical connector bar on left -->
+  <line x1="42" y1="318" x2="42" y2="510" stroke="rgba(124,106,255,0.25)" stroke-width="2"/>
+  <circle cx="42" cy="344" r="3" fill="#7c6aff" opacity="0.6"/>
+  <circle cx="42" cy="414" r="3" fill="#ec4899" opacity="0.6"/>
+  <circle cx="42" cy="484" r="3" fill="#22c55e" opacity="0.6"/>
+
+  <!-- ── Right side: output / pipeline ── -->
+  <!-- Pipeline step 1 -->
+  <rect x="1052" y="200" width="192" height="52" rx="9"
+    fill="rgba(124,106,255,0.10)" stroke="rgba(124,106,255,0.35)" stroke-width="1.5"/>
+  <text x="1148" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#a78bfa" letter-spacing="2">PLAN</text>
+  <text x="1148" y="240" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">architect + planner</text>
+
+  <line x1="1148" y1="252" x2="1148" y2="278" stroke="rgba(124,106,255,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Pipeline step 2 -->
+  <rect x="1052" y="278" width="192" height="52" rx="9"
+    fill="rgba(6,182,212,0.09)" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
+  <text x="1148" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#67e8f9" letter-spacing="2">BUILD</text>
+  <text x="1148" y="318" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">tdd-guide + impl</text>
+
+  <line x1="1148" y1="330" x2="1148" y2="356" stroke="rgba(6,182,212,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Pipeline step 3 -->
+  <rect x="1052" y="356" width="192" height="52" rx="9"
+    fill="rgba(236,72,153,0.09)" stroke="rgba(236,72,153,0.35)" stroke-width="1.5"/>
+  <text x="1148" y="378" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#f9a8d4" letter-spacing="2">REVIEW</text>
+  <text x="1148" y="396" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">security + quality</text>
+
+  <line x1="1148" y1="408" x2="1148" y2="434" stroke="rgba(236,72,153,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Pipeline step 4 -->
+  <rect x="1052" y="434" width="192" height="52" rx="9"
+    fill="rgba(34,197,94,0.09)" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <text x="1148" y="456" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#86efac" letter-spacing="2">SHIP</text>
+  <text x="1148" y="474" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="rgba(148,163,184,0.65)">git + deploy</text>
+
+  <!-- ── Center: Main content ── -->
+  <!-- Label badge top -->
+  <rect x="496" y="128" width="288" height="34" rx="17"
+    fill="rgba(124,106,255,0.12)" stroke="rgba(124,106,255,0.35)" stroke-width="1"/>
+  <circle cx="518" cy="145" r="5" fill="#7c6aff"/>
+  <text x="532" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#a78bfa" letter-spacing="1.5">CLAUDE CODE POWER LAYER</text>
+
+  <!-- Decorative horizontal rule under badge -->
+  <line x1="540" y1="176" x2="740" y2="176" stroke="url(#titleGrad)" stroke-width="1" opacity="0.5"/>
+
+  <!-- Main title line 1: CLAUDE -->
+  <text x="640" y="285"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+    font-size="110" font-weight="800"
+    letter-spacing="-3px"
+    fill="#ffffff"
+    filter="url(#textGlow)">CLAUDE</text>
+
+  <!-- Main title line 2: POWER SETUP — gradient fill -->
+  <text x="640" y="390"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+    font-size="110" font-weight="800"
+    letter-spacing="-3px"
+    fill="url(#titleGrad)"
+    filter="url(#textGlow)">POWER SETUP</text>
+
+  <!-- Subtitle -->
+  <text x="640" y="445"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="22" font-weight="400"
+    fill="rgba(148,163,184,0.85)"
+    letter-spacing="0.5px">Multi-agent orchestration · automation pipelines · self-improvement</text>
+
+  <!-- Install badge -->
+  <rect x="380" y="480" width="520" height="58" rx="12"
+    fill="url(#badgeBg)" stroke="rgba(124,106,255,0.4)" stroke-width="1.5"/>
+  <!-- Prompt dollar sign -->
+  <text x="410" y="517"
+    font-family="'Courier New', 'SF Mono', ui-monospace, monospace"
+    font-size="22" font-weight="700"
+    fill="#7c6aff">$</text>
+  <text x="432" y="517"
+    font-family="'Courier New', 'SF Mono', ui-monospace, monospace"
+    font-size="22" font-weight="400"
+    fill="#a78bfa"
+    letter-spacing="0.5px">npx claude-power-setup</text>
+  <!-- Blinking cursor simulation -->
+  <rect x="866" y="498" width="12" height="22" rx="2" fill="#a78bfa" opacity="0.7"/>
+
+  <!-- Stats row -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="rgba(148,163,184,0.6)">
+    <text x="640" y="572" text-anchor="middle">
+      <tspan fill="#7c6aff" font-weight="700">10+</tspan>
+      <tspan dx="4">specialized agents  </tspan>
+      <tspan fill="rgba(124,106,255,0.4)">·</tspan>
+      <tspan dx="4" fill="#06b6d4" font-weight="700">parallel</tspan>
+      <tspan dx="4">execution  </tspan>
+      <tspan fill="rgba(124,106,255,0.4)">·</tspan>
+      <tspan dx="4" fill="#22c55e" font-weight="700">npm</tspan>
+      <tspan dx="4">installable</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom: subtle npm badge -->
+  <rect x="556" y="600" width="168" height="34" rx="8"
+    fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="640" y="622" text-anchor="middle"
+    font-family="ui-monospace, monospace" font-size="13" fill="rgba(148,163,184,0.5)"
+    letter-spacing="1px">claude-power-setup</text>
+
+  <!-- Edge fade vignette -->
+  <rect width="1280" height="720"
+    fill="url(#vignette)" opacity="0.4"/>
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+</svg>
