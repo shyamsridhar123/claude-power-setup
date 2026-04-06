@@ -1,9 +1,9 @@
 {
   "name": "claude-power-setup",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Multi-agent orchestration, automation pipelines, and self-improvement for Claude Code",
   "bin": {
-    "claude-power-setup": "./cli.js"
+    "claude-power-setup": "cli.js"
   },
   "keywords": [
     "claude",
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shyamsridhar123/claude-power-setup.git"
+    "url": "git+https://github.com/shyamsridhar123/claude-power-setup.git"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.445",
